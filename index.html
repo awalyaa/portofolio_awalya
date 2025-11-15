@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Awalya Pebriana Cahyaningtias</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="star" patternUnits="userSpaceOnUse" width="100" height="100"><g stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"><line x1="50" y1="0" x2="50" y2="100" /><line x1="0" y1="50" x2="100" y2="50" /><line x1="15" y1="15" x2="85" y2="85" /><line x1="85" y1="15" x2="15" y2="85" /><line x1="25" y1="5" x2="75" y2="95" /><line x1="75" y1="5" x2="25" y2="95" /><line x1="5" y1="25" x2="95" y2="75" /><line x1="95" y1="25" x2="5" y2="75" /></g></pattern></defs><rect width="100" height="100" fill="url(%23star)" /></svg>') repeat;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/featured/?green,field') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 160px;
+            border: 5px solid silver;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.8);
+            margin-bottom: 30px;
+            object-fit: cover;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            box-shadow: 0 0 30px rgba(192, 192, 192, 1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #C0C0C0, #FFFFFF);
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #FFFFFF, #C0C0C0);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .what-i-do {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+
+        .service img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service img:hover {
+            transform: scale(1.1);
+        }
+
+        .recent-projects {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .project-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .project-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .testimonials {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            display: none;
+            text-align: center;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .rating {
+            color: gold;
+            font-size: 1.5em;
+        }
+
+        .slider-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .slider-buttons button {
+            background: silver;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slider-buttons button:hover {
+            background: white;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #C0C0C0, #FFFFFF);
+            color: black;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(45deg, #FFFFFF, #C0C0C0);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        footer a {
+            color: silver;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .profile-pic {
+                width: 90px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Halo, saya Awalya Pebriana Cahyaningtias, seorang Desainer Grafis Freelance.</h1>
+            <img src="foto profil.jpg" alt="Foto Profesional Awalya" class="profile-pic">
+            <p>Selamat datang di portofolio saya. Mari kita ciptakan sesuatu yang indah bersama!</p>
+            <a href="#contact" class="cta-button">Mari Bicara</a>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="what-i-do">
+        <h2>What I Do</h2>
+        <p>"Selain sebagai seorang graphic designer, saya juga seorang kreator pemula yang penuh semangat dalam mengekspresikan ide-ide kreatif melalui berbagai desain visual dan konten di TikTok. Dalam perjalanan ini, saya menemukan Canva sebagai alat yang sangat membantu untuk mewujudkan karya desain saya, memadukan elemen-elemen sederhana namun powerful untuk menciptakan visual yang tidak hanya estetik tetapi juga komunikatif. Setiap karya desain saya adalah hasil eksplorasi tanpa batas dalam dunia visual, di mana saya selalu berusaha memberikan sentuhan pribadi pada setiap desain agar pesan yang ingin saya sampaikan bisa diterima dengan baik.</p>
+        <div class="services">
+            <div class="service">
+                <img src="tiktok.png" alt="Branding">
+            </div>
+            <div class="service">
+                <img src="membuat desain.png" alt="Seni Digital">
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Projects Section -->
+    <section class="recent-projects">
+        <h2>Recent Projects</h2>
+        <div class="projects-grid">
+            <div class="project-item">
+                <img src="AMBYAR (1).png" alt="Proyek 1">
+            </div>
+            <div class="project-item">
+                <img src="Spesial.png" alt="Proyek 2">
+            </div>
+            <div class="project-item">
+                <img src="1.png" alt="Proyek 3">
+            </div>
+            <div class="project-item">
+                <img src="2.png" alt="Proyek 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <p>"Awalya sangat profesional dan kreatif. Desainnya luar biasa!"</p>
+                <div class="rating">★★★★★</div>
+                <p>- Klien 1</p>
+            </div>
+            <div class="testimonial">
+                <p>"Kerja sama yang menyenangkan. Hasilnya melebihi ekspektasi."</p>
+                <div class="rating">★★★★★</div>
+                <p>- Klien 2</p>
+            </div>
+            <div class="testimonial">
+                <p>"Rekomendasi penuh untuk desainer grafis freelance."</p>
+                <div class="rating">★★★★★</div>
+                <p>- Klien 3</p>
+            </div>
+        </div>
+        <div class="slider-buttons">
+            <button onclick="prevTestimonial()">Prev</button>
+            <button onclick="nextTestimonial()">Next</button>
+        </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section class="social-links">
+        <h2>Ikuti Saya</h2>
+        <a href="https://www.instagram.com/waallya_/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/awalya-pebriana-cahyaningtias-7a1227308/" target="_blank">LinkedIn</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2023 Awalya Pebriana Cahyaningtias. Hubungi saya di <a href="mailto:awalya.febriana@gmail.com">awalya.febriana@gmail.com</a></p>
+        <p>Alamat: Batu Merah Batu Ampar | Mahasiswa Universitas Putra Batam, Semester 3</p>
+        <a href="#">Resume</a> | <a href="https://www.instagram.com/waallya_/">Instagram</a> | <a href="https://www.linkedin.com/in/awalya-pebriana-cahyaningtias-7a1227308/">LinkedIn</a>
+    </footer>
+
+    <!-- JavaScript for Testimonial Slider -->
+    <script>
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+
+        function showTestimonial(index) {
+            testimonials.forEach((t, i) => {
+                t.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(nextTestimonial, 5000);
+    </script>
+</body>
+
+</html>
+
