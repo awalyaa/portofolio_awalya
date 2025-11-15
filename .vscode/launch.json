@@ -1,0 +1,14 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open awalya.1.html",
+            "file": "c:\\Users\\L13 YOGA\\OneDrive\\Documents\\Belajar (Awal)\\A(lamaran porto)\\awalya.1.html"
+        }
+    ]
+}
